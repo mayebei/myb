@@ -1,0 +1,202 @@
+2、文件系统函数 
+copy 
+复制文本 
+语法 
+bool copy(string source,string dest) 
+eg 
+copy(“abc.txt”,”/tmp/newabc.txt”); 
+fclose 
+关闭一个打开文件的指针 
+语法 
+bool fclose(resource handle) 
+eg 
+$fp=fopen(“abc.txt”,”w”); 
+fclose($fp); 
+fgets 
+从文件指针所指位置取得列的内容 
+语法 
+string fgets(resource handle[,int length]) 
+eg 
+$fp=fopen(“abc.txt”,”w”); 
+$txtdata= fgets($fp,4096); 
+file 
+将整个文件内容读到数组中 
+语法 
+array file(string filename[,int use_include_path[,resource context]]) 
+eg 
+$content=file(“abc.txt”); 
+file_exists 
+检查文件是否存在 
+语法 
+bool file_exists(string filename) 
+eg 
+if (file_exists(“abc.txt”)) 
+echo “此文件存在”; 
+else 
+echo”此文件不存在”; 
+filesize 
+取得文件大小 
+语法 
+int filesize(string filename) 
+eg 
+$size=filesize(“abc.txt”); 
+fopen 
+打开一个文件或者url 
+语法 
+resource fopen (string filename,string mode[,bool use-include_path[,resource zcontext]]) 
+eg 
+$fp=fopen(“abc.txt”); 
+$fp=fopen(“http://www.jb51.net/bacteroid/”,”r”); 
+fputs 
+将数据写至文件中 
+语法 
+int fputs(resource handle,string string[,int length]) 
+eg 
+$fp=fopen(“abc.txt”); 
+fputs($fp,”helloworld!”); 
+fseek 
+设置文件指针所指的位置 
+语法 
+int fseek(resource handle,int offset[,int whence]) 
+eg 
+$fp=fopen(“abc.txt”,”w”); 
+$txtdata=fgets($fp,4096); 
+fseek($fp,0);//将指针指回起始处 
+mkdir 
+建立一个目录 
+语法 
+bool mkdir(string pathname[,int mode[,bool recursive[,resource context]]]) 
+eg 
+mkdir(“ljt/newfolder”); 
+unlink 
+删除文件 
+语法 
+int unlink(string filename); 
+eg 
+unlink(”abc.txt”); 
+3、日期与时间函数 
+data 
+返回指定格式的当地时间/日期 
+语法 
+string date(string format[,int timestamp]) 
+eg 
+$time =date(“Y-m-d g:i:s”); 
+getdate 
+取得日期与时间的信息 
+语法 
+array getdata([int timestamp]) 
+eg 
+$now=getdate(); 
+$year=$now[“year”]; 
+$month=$now[“month”]; 
+gettimeofday 
+取得目前的时间（包括格林尼治时间） 
+语法 
+array gettimeofday(void) 
+eg 
+$time=gettimeofday(); 
+4、字符串处理函数 
+explode 
+根据指定的分隔符将字符串拆分成一个数组 
+语法 
+array explode(string separator,string string[,int limit]) 
+eg 
+$str=”a,b,c”; 
+$res=explode(“,”,$str);//$res[0]=a 
+implode 
+将数组内容连接成一个字符串 
+语法 
+string implode(string glue,array pieces) 
+eg 
+$newarray=array(‘a','b','c'); 
+$res=implode(“,”,$newarray);//$res=a,b,c 
+strlen 
+取得字符串的长度 
+语法 
+int strlen(string string) 
+eg 
+strlen(“www.gxnu.edu.cn”);//传回15 
+substr 
+取得字符串指定的某部分字符（子字符串） 
+语法 
+string substr(“www.gxnu.edu.cn”,1,7); //返回”ww.gxnu” 
+5、数学函数库 
+ceil 
+将浮点数的小数部分无条件进位 
+语法 
+float ceil(float value) 
+eg 
+echo ceil(9.99);//返回10 
+echo ceil(9.12);//返回10 
+cos 
+取得浮点数值的余弦值 
+语法 
+float cos(float arg) 
+eg 
+$numcos=cos(0.5); 
+floor 
+将浮点数的小数部分无条件去掉 
+语法 
+float floor(floor value) 
+eg 
+echo floor(9.12);//返回9 
+echo floor(9.99);// 返回9 
+rand 
+产生一个范围的随机数值 
+语法 
+int rand([int min,in max]) 
+eg 
+$num=rand(0,100);//产生一个介于1到100间的随机数值 
+round 
+将浮点数的小数部分四舍五入进位 
+语法 
+float round(float value) 
+eg 
+float round(9.99)//返回10 
+float round(9.12)//返回9 
+sin 
+取得浮点数值的正弦值 
+语法 
+float sin(float arg) 
+eg 
+$numsin=sin(0.5); 
+6、Session函数 
+session_register 
+说明一或多个Session里的变量 
+语法 
+bool session_register(mixed name[,mixed...]) 
+eg 
+$name=”flag”; 
+session_register(“name”); 
+session_start 
+初始化Session 信息 
+语法 
+bool session(void) 
+eg 
+session_start(); 
+7、数组函数 
+count 
+计算数组中共有几个数组函数 
+语法 
+int count(mixed var[,int mode]) 
+eg 
+count($array); 
+list 
+将数组中的元素值分配给变量 
+语法 
+void list(mixed varname,mixed...) 
+eg 
+$array=array(a,b,c); 
+list($str1,$str2,$str3)=$array;//$str1=a 
+range 
+建立一个在指定范围内的数组 
+语法 
+array range(int low,int high[,int step]) 
+eg 
+$array=array(0,9); 
+shuffle 
+将数组中的元素重新随机排序 
+语法 
+bool shuffle(array array) 
+eg 
+shuffle($array);
